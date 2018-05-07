@@ -1,0 +1,16 @@
+{
+  "name": "Contao 4 Random Article Bundle",
+  "description": "Display a random article out of a specific page as module.",
+  "type": "symfony-bundle",
+  "authors": [
+    {
+      "name": "Fred Bliss",
+      "email": "fred@intelligentspark.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "IntelligentSpark\\RandomArticle\\": "src/"
+    }
+  }
+}
