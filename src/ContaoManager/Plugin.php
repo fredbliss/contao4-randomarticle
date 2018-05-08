@@ -14,7 +14,7 @@ use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
-use Terminal42\RootcontentBundle\Terminal42RootcontentBundle;
+use IntelligentSpark\RandomArticle\Contao4RandomArticleBundle;
 class Plugin implements BundlePluginInterface
 {
     /**
