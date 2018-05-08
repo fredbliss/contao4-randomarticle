@@ -2,6 +2,7 @@
   "name": "Contao 4 Random Article Bundle",
   "description": "Display a random article out of a specific page as module.",
   "type": "contao-bundle",
+  "keywords": ["contao","random article"],
   "authors": [
     {
       "name": "Terminal 42",
