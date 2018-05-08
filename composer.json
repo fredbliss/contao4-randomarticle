@@ -38,6 +38,6 @@
     "src/Resources/contao/templates/"
   ],
   "extra": {
-    "contao-manager-plugin": "IntelligentSpark\\Contao4RandomArticleBundle\\ContaoManager\\Plugin"
+    "contao-manager-plugin": "IntelligentSpark\\RandomArticle\\ContaoManager\\Plugin"
   }
 }

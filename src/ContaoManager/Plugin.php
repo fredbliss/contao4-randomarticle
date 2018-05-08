@@ -8,7 +8,7 @@ declare(strict_types=1);
  * @license    LGPL-3.0-or-later
  * @link       http://github.com/terminal42/contao-asset-reload
  */
-namespace IntelligentSpark\Contao4RandomArticleBundle\ContaoManager;
+namespace IntelligentSpark\RandomArticle\ContaoManager;
 
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
