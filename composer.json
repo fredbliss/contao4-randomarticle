@@ -1,5 +1,5 @@
 {
-  "name": "Contao 4 Random Article Bundle",
+  "name": "intelligentspark/contao4-randomarticle",
   "description": "Display a random article out of a specific page as module.",
   "type": "contao-bundle",
   "authors": [
