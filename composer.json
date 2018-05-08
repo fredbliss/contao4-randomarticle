@@ -14,12 +14,7 @@
   ],
   "require": {
     "php": "^7.1",
-    "contao/core-bundle": "self.version",
-    "symfony/framework-bundle": "^3.4"
-  },
-  "conflict": {
-    "contao/core": "*",
-    "contao/manager-plugin": "<2.0 || >=3.0"
+    "contao/core-bundle": "self.version"
   },
   "autoload": {
     "psr-4": {
