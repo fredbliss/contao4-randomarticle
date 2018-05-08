@@ -27,6 +27,8 @@
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
 namespace IntelligentSpark\RandomArticle;
+
+use Contao\Module as Contao_Module;
  
 class ModuleRandomArticle extends Module
 {

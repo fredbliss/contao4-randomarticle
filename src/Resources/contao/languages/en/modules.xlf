@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+    <file datatype="php" original="src/Resources/contao/languages/en/modules.php" source-language="en">
+        <body>
+            <trans-unit id="MOD.randomarticle.0">
+                <source>Random Article</source>
+            </trans-unit>
+            <trans-unit id="MOD.randomarticle.1">
+                <source>Display one random article of a source page.</source>
+            </trans-unit>
+            <trans-unit id="FMD.randomarticle.0">
+                <source>Random Article</source>
+            </trans-unit>
+            <trans-unit id="FMD.randomarticle.1">
+                <source>Display one random article of a source page.</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

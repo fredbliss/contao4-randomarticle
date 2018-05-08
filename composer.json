@@ -1,16 +1,38 @@
 {
   "name": "Contao 4 Random Article Bundle",
   "description": "Display a random article out of a specific page as module.",
-  "type": "symfony-bundle",
+  "type": "contao-bundle",
   "authors": [
     {
-      "name": "Fred Bliss",
-      "email": "fred@intelligentspark.com"
+      "name": "Terminal 42",
+      "email": "Andreas Schempp <andreas.schempp@terminal42.ch>"
+    },
+    {
+      "name": "Codefog",
+      "homepage": "http://codefog.pl"
     }
   ],
+  "require": {
+    "php": "^7.1",
+    "contao/core-bundle": "self.version",
+    "symfony/framework-bundle": "^3.4"
+  },
+  "conflict": {
+    "contao/core": "*",
+    "contao/manager-plugin": "<2.0 || >=3.0"
+  },
   "autoload": {
     "psr-4": {
       "IntelligentSpark\\RandomArticle\\": "src/"
     }
-  }
+  },
+  "classmap": [
+    "src/Resources/contao/"
+  ],
+  "exclude-from-classmap": [
+    "src/Resources/contao/config/",
+    "src/Resources/contao/dca/",
+    "src/Resources/contao/languages/",
+    "src/Resources/contao/templates/"
+  ]
 }
