@@ -30,7 +30,7 @@ namespace IntelligentSpark\RandomArticle;
 
 use Contao\Module as Contao_Module;
  
-class ModuleRandomArticle extends Module
+class ModuleRandomArticle extends Contao_Module
 {
 	/**
 	 * Tempalte
