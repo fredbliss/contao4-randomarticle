@@ -20,6 +20,12 @@
             <trans-unit id="tl_module.randomArticle.1">
                 <source>Here you can enter a number of articles to be displayed. Set 0 to display all articles.</source>
             </trans-unit>
+            <trans-unit id="tl_module.numberOfArticles.0">
+                <source>Number of articles</source>
+            </trans-unit>
+            <trans-unit id="tl_module.numberOfArticles.1">
+                <source>Here you can enter a number of articles to be displayed. Set 0 to display all articles.</source>
+            </trans-unit>
             <trans-unit id="tl_module.randomArticle_ref.0">
                 <source>Fetch new random article on each page load</source>
             </trans-unit>
