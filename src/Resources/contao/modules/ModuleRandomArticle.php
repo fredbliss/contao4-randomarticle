@@ -52,20 +52,21 @@ class ModuleRandomArticle extends Contao_Module
 
 			return $objTemplate->parse();
 		}
+        /*
+                $strFile = 'system/modules/frontend/ModuleArticle.php';
 
-		$strFile = 'system/modules/frontend/ModuleArticle.php';
+                // Check the file in Contao 3
+                if (version_compare(VERSION, '3.0', '>='))
+                {
+                    $strFile = 'system/modules/core/modules/ModuleArticle.php';
+                }
 
-		// Check the file in Contao 3
-		if (version_compare(VERSION, '3.0', '>='))
-		{
-			$strFile = 'system/modules/core/modules/ModuleArticle.php';
-		}
-
-		if (!file_exists(TL_ROOT . '/' . $strFile))
-		{
-			$this->log('Class ModuleArticle does not exist', 'ModuleRandomArticle compile()', TL_ERROR);
-			return '';
-		}
+                if (!file_exists(TL_ROOT . '/' . $strFile))
+                {
+                    $this->log('Class ModuleArticle does not exist', 'ModuleRandomArticle compile()', TL_ERROR);
+                    return '';
+                }
+        */
 
 		return parent::generate();
 	}
