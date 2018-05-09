@@ -52,7 +52,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['randomArticle'] = array
 	'label'			=> &$GLOBALS['TL_LANG']['tl_module']['randomArticle'],
 	'inputType'		=> 'radio',
 	'exclude'		=> true,
-	'options'		=> array('', '1', '2'),
+	'options'		=> array('0', '1', '2'),
 	'reference'		=> &$GLOBALS['TL_LANG']['tl_module']['randomArticle_ref'],
 	'eval'			=> array('submitOnChange'=>true),
 	'sql'           => "char(1) NOT NULL default ''"
