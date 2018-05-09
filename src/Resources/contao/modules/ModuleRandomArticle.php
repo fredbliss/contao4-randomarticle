@@ -29,6 +29,7 @@
 namespace IntelligentSpark\RandomArticle;
 
 use Contao\Module as Contao_Module;
+use Contao\ModuleArticle as Contao_ModuleArticle;
  
 class ModuleRandomArticle extends Contao_Module
 {
@@ -52,21 +53,6 @@ class ModuleRandomArticle extends Contao_Module
 
 			return $objTemplate->parse();
 		}
-        /*
-                $strFile = 'system/modules/frontend/ModuleArticle.php';
-
-                // Check the file in Contao 3
-                if (version_compare(VERSION, '3.0', '>='))
-                {
-                    $strFile = 'system/modules/core/modules/ModuleArticle.php';
-                }
-
-                if (!file_exists(TL_ROOT . '/' . $strFile))
-                {
-                    $this->log('Class ModuleArticle does not exist', 'ModuleRandomArticle compile()', TL_ERROR);
-                    return '';
-                }
-        */
 
 		return parent::generate();
 	}
@@ -156,7 +142,7 @@ class ModuleRandomArticle extends Contao_Module
 			$objArticles->showTeaser = $this->showTeaser;
 			$objArticles->multiMode = $this->showTeaser ? true : false;
 	
-			$objArticle = new ModuleArticle($objArticles, $this->inColumn);
+			$objArticle = new Contao_ModuleArticle($objArticles, $this->inColumn);
 			$objArticle->cssID = $this->cssID;
 			$objArticle->space = $this->space;
 			
