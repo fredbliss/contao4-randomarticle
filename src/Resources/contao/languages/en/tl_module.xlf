@@ -26,13 +26,13 @@
             <trans-unit id="tl_module.numberOfArticles.1">
                 <source>Here you can enter a number of articles to be displayed. Set 0 to display all articles.</source>
             </trans-unit>
-            <trans-unit id="tl_module.randomArticle_ref.0">
+            <trans-unit id="tl_module.randomArticle_ref.each">
                 <source>Fetch new random article on each page load</source>
             </trans-unit>
-            <trans-unit id="tl_module.randomArticle_ref.1">
+            <trans-unit id="tl_module.randomArticle_ref.interval">
                 <source>Keep random article for a number of page loads</source>
             </trans-unit>
-            <trans-unit id="tl_module.randomArticle_ref.2">
+            <trans-unit id="tl_module.randomArticle_ref.session">
                 <source>Keep one article for the whole session</source>
             </trans-unit>
         </body>

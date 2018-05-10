@@ -31,6 +31,7 @@
  * Palettes
  */
 $GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][]	= 'randomArticle';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['randomarticle']	= '{title_legend},name,type;{reference_legend},rootPage,inColumn;{config_legend},randomArticle,showTeaser,numberOfArticles;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['randomarticle0']	= '{title_legend},name,type;{reference_legend},rootPage,inColumn;{config_legend},randomArticle,showTeaser,numberOfArticles;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['randomarticle1']	= '{title_legend},name,type;{reference_legend},rootPage,inColumn;{config_legend},randomArticle,keepArticle,showTeaser,numberOfArticles;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['randomarticle2']	= '{title_legend},name,type;{reference_legend},rootPage,inColumn;{config_legend},randomArticle,showTeaser,numberOfArticles;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
@@ -52,8 +53,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['randomArticle'] = array
 	'label'			=> &$GLOBALS['TL_LANG']['tl_module']['randomArticle'],
 	'inputType'		=> 'radio',
 	'exclude'		=> true,
-	'default'       => '0',
-	'options'		=> array('0', '1', '2'),
+	'default'       => 'each',
+	'options'		=> array('each', 'interval', 'session'),
 	'reference'		=> &$GLOBALS['TL_LANG']['tl_module']['randomArticle_ref'],
 	'eval'			=> array('submitOnChange'=>true),
 	'sql'           => "char(1) NOT NULL default ''"

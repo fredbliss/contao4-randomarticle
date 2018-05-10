@@ -73,7 +73,7 @@ class ModuleRandomArticle extends Contao_Module
 		switch ($this->randomArticle)
 		{
 			// Keep the whole session
-			case '2':
+			case 'session':
 				if (is_array($_SESSION['MOD_RANDOMARTICLE'][$this->id]['articles']) && !empty($_SESSION['MOD_RANDOMARTICLE'][$this->id]['articles']))
 				{
 					$objArticlesStmt = $this->Database->prepare("SELECT tl_article.*, tl_page.id AS page_id, tl_page.alias AS page_alias FROM tl_article LEFT OUTER JOIN tl_page ON tl_article.pid=tl_page.id WHERE tl_article.id IN (" . implode(',', array_map('intval', $_SESSION['MOD_RANDOMARTICLE'][$this->id]['articles'])) . ")");
@@ -89,7 +89,7 @@ class ModuleRandomArticle extends Contao_Module
 				}
 				
 			// Keep a number of times
-			case '1':
+			case 'interval':
 				if (is_array($_SESSION['MOD_RANDOMARTICLE'][$this->id]['articles']) && !empty($_SESSION['MOD_RANDOMARTICLE'][$this->id]['articles']) && $this->keepArticle > 0 && $this->keepArticle > $_SESSION['MOD_RANDOMARTICLE'][$this->id]['count'])
 				{
 					$objArticlesStmt = $this->Database->prepare("SELECT tl_article.*, tl_page.id AS page_id, tl_page.alias AS page_alias FROM tl_article LEFT OUTER JOIN tl_page ON tl_article.pid=tl_page.id WHERE tl_article.id IN (" . implode(',', array_map('intval', $_SESSION['MOD_RANDOMARTICLE'][$this->id]['articles'])) . ")");
@@ -103,7 +103,7 @@ class ModuleRandomArticle extends Contao_Module
 					$objArticles = $objArticlesStmt->execute();
 					break;
 				}
-			
+            case 'each':
 			default:
 				$_SESSION['MOD_RANDOMARTICLE'][$this->id]['articles'] = array();
 				$_SESSION['MOD_RANDOMARTICLE'][$this->id]['count'] = 0;
