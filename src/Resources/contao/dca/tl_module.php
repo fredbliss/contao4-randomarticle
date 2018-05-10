@@ -57,7 +57,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['randomArticle'] = array
 	'options'		=> array('each', 'interval', 'session'),
 	'reference'		=> &$GLOBALS['TL_LANG']['tl_module']['randomArticle_ref'],
 	'eval'			=> array('submitOnChange'=>true, 'mandatory'=>true),
-	'sql'           => "char(1) NOT NULL default ''"
+	'sql'           => "varchar(16) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['keepArticle'] = array
