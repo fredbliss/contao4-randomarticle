@@ -87,7 +87,7 @@ class ModuleRandomArticle extends Contao_Module
 					$objArticles = $objArticlesStmt->execute();
 					break;
 				}
-				
+				break;
 			// Keep a number of times
 			case 'interval':
 				if (is_array($_SESSION['MOD_RANDOMARTICLE'][$this->id]['articles']) && !empty($_SESSION['MOD_RANDOMARTICLE'][$this->id]['articles']) && $this->keepArticle > 0 && $this->keepArticle > $_SESSION['MOD_RANDOMARTICLE'][$this->id]['count'])
@@ -103,6 +103,7 @@ class ModuleRandomArticle extends Contao_Module
 					$objArticles = $objArticlesStmt->execute();
 					break;
 				}
+				break;
             case 'each':
 			default:
 				$_SESSION['MOD_RANDOMARTICLE'][$this->id]['articles'] = array();
@@ -116,6 +117,7 @@ class ModuleRandomArticle extends Contao_Module
 				}
 
 				$objArticles = $objArticlesStmt->execute($this->rootPage, $this->inColumn, '', time(), '', time());
+				break;
 		}
 
 		if ($objArticles->numRows < 1)
