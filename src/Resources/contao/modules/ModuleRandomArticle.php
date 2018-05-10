@@ -1,4 +1,6 @@
-<?php if (!defined('TL_ROOT')) die('You cannot access this file directly!');
+<?php
+
+namespace IntelligentSpark\RandomArticle;
 
 /**
  * Contao Open Source CMS
@@ -26,7 +28,6 @@
  * @author     Jan Reuteler <jan.reuteler@iserv.ch>
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
-namespace IntelligentSpark\RandomArticle;
 
 use Contao\Module as Contao_Module;
 use Contao\ModuleArticle as Contao_ModuleArticle;
