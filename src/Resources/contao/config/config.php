@@ -30,5 +30,5 @@
 /**
  * Frontend modules
  */
-$GLOBALS['FE_MOD']['miscellaneous']['randomarticle'] = 'ModuleRandomArticle';
+$GLOBALS['FE_MOD']['miscellaneous']['randomarticle'] = 'IntelligentSpark\RandomArticle\ModuleRandomArticle';
 
