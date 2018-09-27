@@ -44,7 +44,7 @@ class ModuleRandomArticle extends Contao_Module
 	{
 		if (TL_MODE == 'BE')
 		{
-			$objTemplate = new BackendTemplate('be_wildcard');
+			$objTemplate = new \BackendTemplate('be_wildcard');
 
 			$objTemplate->wildcard = '### RANDOM ARTICLE ###';
 			$objTemplate->title = $this->headline;
