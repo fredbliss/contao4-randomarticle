@@ -26,17 +26,17 @@
   "autoload": {
     "psr-4": {
       "IntelligentSpark\\RandomArticle\\": "src/"
-    }
+    },
+    "classmap": [
+      "src/Resources/contao/"
+    ],
+    "exclude-from-classmap": [
+      "src/Resources/contao/config/",
+      "src/Resources/contao/dca/",
+      "src/Resources/contao/languages/",
+      "src/Resources/contao/templates/"
+    ]
   },
-  "classmap": [
-    "src/Resources/contao/"
-  ],
-  "exclude-from-classmap": [
-    "src/Resources/contao/config/",
-    "src/Resources/contao/dca/",
-    "src/Resources/contao/languages/",
-    "src/Resources/contao/templates/"
-  ],
   "extra": {
     "contao-manager-plugin": "IntelligentSpark\\RandomArticle\\ContaoManager\\Plugin"
   }
