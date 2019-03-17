@@ -1,4 +1,4 @@
-<?php if (!defined('TL_ROOT')) die('You cannot access this file directly!');
+<?php
 
 /**
  * Contao Open Source CMS
@@ -25,6 +25,12 @@
  * @author     Andreas Schempp <andreas@schempp.ch>
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
+
+
+/**
+ * Config
+ */
+$GLOBALS['TL_DCA']['tl_module']['config']['onload_callback'][] = [\IntelligentSpark\RandomArticle\DataContainer\ModuleCallbackListener::class, 'onLoadCallback'];
 
  
 /**
