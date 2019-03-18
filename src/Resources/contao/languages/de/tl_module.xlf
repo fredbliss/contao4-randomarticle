@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+    <file datatype="php" original="src/Resources/contao/languages/en/tl_module.php" source-language="en" target-language="de">
+        <body>
+            <trans-unit id="tl_module.keepArticle.0">
+                <target>Artikel beibehalten</target>
+            </trans-unit>
+            <trans-unit id="tl_module.keepArticle.1">
+                <target>Geben Sie ein wieviele Seitenaufrufe die angezeigten Artikel gleiche bleiben sollen.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.randomArticle.0">
+                <target>Zufallslogik</target>
+            </trans-unit>
+            <trans-unit id="tl_module.randomArticle.1">
+                <target>Hier können Sie die Logik festlegen, mit der die zufälligen Artikel angezeigt werden.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.numberOfArticles.0">
+                <target>Artikelanzahl</target>
+            </trans-unit>
+            <trans-unit id="tl_module.numberOfArticles.1">
+                <target>Hier können Sie die Anzahl an Artikel eingeben, die angezeigt werden sollen. 0 zeigt alle an.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.showTeaser.0">
+                <target>Zeige Teaser</target>
+            </trans-unit>
+            <trans-unit id="tl_module.showTeaser.1">
+                <target>Zeigt Teaser statt dem kompletten Artikel an, gefollgt von einem "Weiterlesen..." link.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.randomArticle_ref.each">
+                <target>Zufälliger Artikel bei jedem Seitenaufruf</target>
+            </trans-unit>
+            <trans-unit id="tl_module.randomArticle_ref.interval">
+                <target>Artikel wird für eine Anzahl an Seitenaufrufen beibehalten</target>
+            </trans-unit>
+            <trans-unit id="tl_module.randomArticle_ref.session">
+                <target>Behält einen Artikel für die gesamte Session</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -2,12 +2,6 @@
 <xliff version="1.1">
     <file datatype="php" original="src/Resources/contao/languages/en/tl_module.php" source-language="en">
         <body>
-            <trans-unit id="tl_module.randomArticle.0">
-                <source>Phone Number</source>
-            </trans-unit>
-            <trans-unit id="tl_module.randomArticle.1">
-                <source>Please enter the phone number best to reach you at.</source>
-            </trans-unit>
             <trans-unit id="tl_module.keepArticle.0">
                 <source>Keep Article</source>
             </trans-unit>
@@ -15,10 +9,10 @@
                 <source>Enter how many page views the same article should be shown.</source>
             </trans-unit>
             <trans-unit id="tl_module.randomArticle.0">
-                <source>Number of articles</source>
+                <source>Random mode</source>
             </trans-unit>
             <trans-unit id="tl_module.randomArticle.1">
-                <source>Here you can enter a number of articles to be displayed. Set 0 to display all articles.</source>
+                <source>Here you set the mode for how the random articles will be displayed.</source>
             </trans-unit>
             <trans-unit id="tl_module.numberOfArticles.0">
                 <source>Number of articles</source>
