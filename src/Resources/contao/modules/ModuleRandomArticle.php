@@ -31,13 +31,20 @@ namespace IntelligentSpark\RandomArticle;
 
 use Contao\Module as Contao_Module;
 use Contao\ModuleArticle as Contao_ModuleArticle;
+use Contao\System;
+use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBagInterface;
  
 class ModuleRandomArticle extends Contao_Module
 {
 	/**
-	 * Tempalte
+	 * Template
 	 */
 	protected $strTemplate = 'mod_randomarticle';
+
+	/**
+	 * Session data
+	 */
+	protected $sessionData;
 
 
 	public function generate()
@@ -55,7 +62,26 @@ class ModuleRandomArticle extends Contao_Module
 			return $objTemplate->parse();
 		}
 
-		return parent::generate();
+		/** @var AttributeBagInterface $objSessionBag */
+		$sessionBag = System::getContainer()->get('session')->getBag('contao_frontend');
+		$sessionData = $sessionBag->has('MOD_RANDOMARTICLE') ? $sessionBag->get('MOD_RANDOMARTICLE') : [];
+
+		if (isset($sessionData[$this->id])) {
+			$this->sessionData = $sessionData[$this->id];
+		}
+		else {
+			$this->sessionData = [
+				'articles' => [],
+				'count' => 0,
+			];
+		}
+
+		$result = parent::generate();
+
+		$sessionData[$this->id] = $this->sessionData;
+		$sessionBag->set('MOD_RANDOMARTICLE', $sessionData);
+
+		return $result;
 	}
 
 
@@ -75,9 +101,9 @@ class ModuleRandomArticle extends Contao_Module
 		{
 			// Keep the whole session
 			case 'session':
-				if (is_array($_SESSION['MOD_RANDOMARTICLE'][$this->id]['articles']) && !empty($_SESSION['MOD_RANDOMARTICLE'][$this->id]['articles']))
+				if (is_array($this->sessionData['articles']) && !empty($this->sessionData['articles']))
 				{
-					$objArticlesStmt = $this->Database->prepare("SELECT tl_article.*, tl_page.id AS page_id, tl_page.alias AS page_alias FROM tl_article LEFT OUTER JOIN tl_page ON tl_article.pid=tl_page.id WHERE tl_article.id IN (" . implode(',', array_map('intval', $_SESSION['MOD_RANDOMARTICLE'][$this->id]['articles'])) . ")");
+					$objArticlesStmt = $this->Database->prepare("SELECT tl_article.*, tl_page.id AS page_id, tl_page.alias AS page_alias FROM tl_article LEFT OUTER JOIN tl_page ON tl_article.pid=tl_page.id WHERE tl_article.id IN (" . implode(',', array_map('intval', $this->sessionData['articles'])) . ")");
 
 					// Limit items
 					if ($this->numberOfArticles > 0)
@@ -88,12 +114,11 @@ class ModuleRandomArticle extends Contao_Module
 					$objArticles = $objArticlesStmt->execute();
 					break;
 				}
-				break;
 			// Keep a number of times
 			case 'interval':
-				if (is_array($_SESSION['MOD_RANDOMARTICLE'][$this->id]['articles']) && !empty($_SESSION['MOD_RANDOMARTICLE'][$this->id]['articles']) && $this->keepArticle > 0 && $this->keepArticle > $_SESSION['MOD_RANDOMARTICLE'][$this->id]['count'])
+				if (is_array($this->sessionData['articles']) && !empty($this->sessionData['articles']) && $this->keepArticle > 0 && $this->keepArticle > $this->sessionData['count'])
 				{
-					$objArticlesStmt = $this->Database->prepare("SELECT tl_article.*, tl_page.id AS page_id, tl_page.alias AS page_alias FROM tl_article LEFT OUTER JOIN tl_page ON tl_article.pid=tl_page.id WHERE tl_article.id IN (" . implode(',', array_map('intval', $_SESSION['MOD_RANDOMARTICLE'][$this->id]['articles'])) . ")");
+					$objArticlesStmt = $this->Database->prepare("SELECT tl_article.*, tl_page.id AS page_id, tl_page.alias AS page_alias FROM tl_article LEFT OUTER JOIN tl_page ON tl_article.pid=tl_page.id WHERE tl_article.id IN (" . implode(',', array_map('intval', $this->sessionData['articles'])) . ")");
 
 					// Limit items
 					if ($this->numberOfArticles > 0)
@@ -104,11 +129,10 @@ class ModuleRandomArticle extends Contao_Module
 					$objArticles = $objArticlesStmt->execute();
 					break;
 				}
-				break;
-            case 'each':
+			case 'each':
 			default:
-				$_SESSION['MOD_RANDOMARTICLE'][$this->id]['articles'] = array();
-				$_SESSION['MOD_RANDOMARTICLE'][$this->id]['count'] = 0;
+				$this->sessionData['articles'] = array();
+				$this->sessionData['count'] = 0;
 				$objArticlesStmt = $this->Database->prepare("SELECT tl_article.*, tl_page.id AS page_id, tl_page.alias AS page_alias FROM tl_article LEFT OUTER JOIN tl_page ON tl_article.pid=tl_page.id WHERE tl_article.pid=? AND tl_article.inColumn=? " . ((is_array($GLOBALS['RANDOMARTICLES']) && count($GLOBALS['RANDOMARTICLES'])) ? ' AND tl_article.id NOT IN (' . implode(',', $GLOBALS['RANDOMARTICLES']) . ') ' : '') . "AND (tl_article.start=? OR tl_article.start<?) AND (tl_article.stop=? OR tl_article.stop>?)" . (!BE_USER_LOGGED_IN ? ' AND tl_article.published=1' : '') . " ORDER BY RAND()");
 
 				// Limit items
@@ -126,13 +150,13 @@ class ModuleRandomArticle extends Contao_Module
 			return;
 		}
 		
-		$_SESSION['MOD_RANDOMARTICLE'][$this->id]['count'] = strlen($_SESSION['MOD_RANDOMARTICLE'][$this->id]['count']) ? ($_SESSION['MOD_RANDOMARTICLE'][$this->id]['count']+1) : 1;
+		$this->sessionData['count']++;
 		$arrArticles = array();
 
 		// Generate articles
 		while ($objArticles->next())
 		{
-			$_SESSION['MOD_RANDOMARTICLE'][$this->id]['articles'][] = $objArticles->id;
+			$this->sessionData['articles'][] = $objArticles->id;
 			$GLOBALS['RANDOMARTICLES'][] = $objArticles->id;
 
 			// Print article as PDF
