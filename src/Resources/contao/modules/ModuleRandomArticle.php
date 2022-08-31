@@ -185,7 +185,7 @@ class ModuleRandomArticle extends Contao_Module
 			$arrArticles[] = $objArticle->generate();
 		}
 
-		$this->Template->article = is_array($arrArticles) ? implode($arrArticles, "\n") : $arrArticles;;
+		$this->Template->article = implode("\n", $arrArticles);
 		
 		// Reset page options
 		if ($objArticles->numRows == 1)
